@@ -1,0 +1,10 @@
+.popup__title_small {
+    margin: 34px auto 0 0;
+  }
+  
+  @media screen and (max-width: 650px) {
+    .popup__title_small {
+      margin: 25px auto 0;
+    }
+  }
+  
