@@ -1,0 +1,31 @@
+.data__field {
+    margin: 0 0 30px;
+    width: 358px;
+    height: 27px;
+    padding-bottom: 9px;
+    border-style: none;
+    outline: none;
+    border-bottom: 2px solid rgb(204,204,204);
+    font-style: normal;
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 17px;
+    color: #CCCCCC;
+    background-color: #000000;
+  
+  }
+
+  .data__field:focus{
+    background-color: #000000;
+  }
+  
+  .data__field:last-of-type {
+    margin: 0;
+  }
+  
+  @media screen and (max-width: 650px) {
+    .data__field {
+      width: 260px;
+    }
+  }
+  

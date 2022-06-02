@@ -1,0 +1,17 @@
+.data__title {
+    font-style: normal;
+    font-weight: 900;
+    font-size: 24px;
+    line-height: 29px;
+    margin: 0px auto 50px;
+    text-align: center;
+  }
+  
+  @media screen and (max-width: 650px) {
+    .data__title {
+      font-size: 20px;
+      line-height: 24.2px;
+      margin: 0px auto 40px;
+    }
+  }
+  

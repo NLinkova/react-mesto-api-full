@@ -3,8 +3,14 @@
 
 @import url("../src/blocks/page/page.css");
 
+@import url("../src/blocks/loader/loader.css");
+@import url("../src/blocks/loader/_shown/loader_shown.css");
+
 @import url("../src/blocks/header/header.css");
 @import url("../src/blocks/header/__logo/header__logo.css");
+@import url("../src/blocks/header/__link/header__link.css");
+@import url("../src/blocks/header/__link/_exit/headder__link_exit.css");
+@import url("../src/blocks/header/__wrapper/header__wrapper.css");
 
 @import url("../src/blocks/content/content.css");
 
@@ -56,6 +62,18 @@
 @import url("../src/blocks/popup/__content/popup__content.css");
 @import url("../src/blocks/popup/__image/popup__image.css");
 @import url("../src/blocks/popup/__caption/popup__caption.css");
+@import url('../src/blocks/popup/__container/_info/popup__container_info.css');
+@import url("../src/blocks/popup/__info-image/popup__info-image.css");
+@import url("../src/blocks/popup/__title/_type_info/popup__title_type_info.css");
+
+@import url("../src/blocks/data/data.css");
+@import url("../src/blocks/data/__container/data__container.css");
+@import url("../src/blocks/data/__field/data__field.css");
+@import url("../src/blocks/data/__form/data__form.css");
+@import url("../src/blocks/data/__submit-button/data__submit-button.css");
+@import url("../src/blocks/data/__title/data__title.css");
+@import url("../src/blocks/data/__subtitle/data__subtitle.css");
+@import url("../src/blocks/data/__link/data__link.css");
 
 @import url("../src/blocks/footer/footer.css");
 @import url("../src/blocks/footer/__copyright/footer__copyright.css");

@@ -1,0 +1,11 @@
+.popup__container_info {
+    margin: 145px auto auto;    
+  }
+  
+  @media screen and (max-width: 650px) {
+    .popup__container_info {
+      margin: 130px auto auto; 
+      width: 280px;
+      min-height: 308px;
+    }
+  }

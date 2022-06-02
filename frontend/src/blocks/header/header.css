@@ -1,13 +1,16 @@
 .header {
   max-width: 68.75%;
   max-height: 74px;
-  margin: 45px auto 40px;
+  margin: 45px auto 60px;
   border-bottom: 1px solid rgb(84, 84, 84, 0.7);
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
 }
 
 @media screen and (max-width: 650px) {
   .header {
-    margin: 28px auto 42px;
+    margin: 28px auto 40px;
     max-width: 100%;
     max-height: 56px;
   }

@@ -1,0 +1,15 @@
+.data__container {
+    margin: 0px auto;
+    color: #FFFFFF;
+    width: 358px;
+    min-height: 430px;
+    position: relative;
+}
+  
+  @media screen and (max-width: 650px) {
+    .data__container {
+      margin: 40px auto auto;
+      width: 260px;
+      min-height: 367px;
+    }
+  }
