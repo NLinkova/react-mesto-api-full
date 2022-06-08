@@ -1,6 +1,8 @@
 const express = require('express');
 const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
+require('dotenv').config();
+const helmet = require('helmet');
 const cors = require('cors');
 const { errors } = require('celebrate');
 const { login, createUser } = require('./controllers/userController');
@@ -10,41 +12,11 @@ const { userValidator } = require('./middlewares/userValidator');
 const { requestLogger, errorLogger } = require('./middlewares/logger');
 const ErrorNotFound = require('./errors/ErrorNotFound');
 
-// Слушаем 3000 порт
-const { PORT = 3000 } = process.env;
+// Слушаем 5000
+const { PORT = 5000 } = process.env;
+
 const app = express();
-app.use(cors());
-
-// app.use((req, res, next) => {
-//   res.header('Access-Control-Allow-Origin', '*');
-//   res.header('Access-Control-Allow-Headers', '*');
-//   res.header('Access-Control-Allow-Methods', 'GET,HEAD,PUT,PATCH,POST,DELETE,OPTIONS');
-//   if (req.method === 'OPTIONS') {
-//     res.send(200);
-//   }
-//   next();
-// });
-
-app.use(bodyParser.json()); // для собирания JSON-формата
-app.use(bodyParser.urlencoded({ extended: true })); // для приёма веб-страниц внутри POST-запроса
-
-app.use(requestLogger);
-// routes
-app.post('/signin', userValidator, login);
-app.post('/signup', userValidator, createUser);
-
-app.use(auth);
-
-app.use('/users', require('./routes/userRoutes'));
-app.use('/cards', require('./routes/cardRoutes'));
-
-app.use(errorLogger);
-
-app.use((req, res, next) => {
-  next(new ErrorNotFound('Not found'));
-});
-app.use(errors());
-app.use(errorHandler);
+app.use(helmet());
 
 // подключаемся к серверу mongo
 const connectDB = async () => {
@@ -61,4 +33,48 @@ const connectDB = async () => {
 };
 connectDB();
 
-app.listen(PORT, console.log(`Server running on port ${PORT}`));
+// CORS middleware
+const CORS_CONFIG = {
+  credentials: true,
+  origin: [
+    'http://linkova.mesto.back.nomoredomains.xyz/',
+    'https://linkova.mesto.back.nomoredomains.xyz/',
+    'https://localhost:3000',
+    'http://localhost:3000',
+    'https://localhost:5000',
+    'http://localhost:5000',
+  ],
+};
+
+app.use(cors(CORS_CONFIG));
+
+app.use(bodyParser.json()); // для собирания JSON-формата
+app.use(bodyParser.urlencoded({ extended: true })); // для приёма веб-страниц внутри POST-запроса
+
+app.use(requestLogger);
+
+// crash test
+app.get('/crash-test', () => {
+  setTimeout(() => {
+    throw new Error('Сервер сейчас упадёт');
+  }, 0);
+});
+
+// routes
+app.post('/signin', userValidator, login);
+app.post('/signup', userValidator, createUser);
+
+app.use(auth);
+
+app.use('/users', require('./routes/userRoutes'));
+app.use('/cards', require('./routes/cardRoutes'));
+
+app.use(errorLogger);
+app.use(errors());
+app.use(errorHandler);
+
+app.use('*', (req, res, next) => {
+  next(new ErrorNotFound('Ресурс по указанному адресу не найден'));
+});
+
+app.listen(PORT);

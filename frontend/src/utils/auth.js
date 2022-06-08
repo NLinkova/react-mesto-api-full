@@ -1,4 +1,4 @@
-export const BASE_URL = "https://auth.nomoreparties.co";
+export const BASE_URL = 'https://linkova.mesto.back.nomoredomains.xyz';
 
 const checkResponse = (res) => {
   if (res.ok) {
@@ -11,12 +11,10 @@ export const register = (email, password) => {
   return fetch(`${BASE_URL}/signup`, {
     method: "POST",
     headers: {
-      Accept: "application/json",
       "Content-Type": "application/json",
     },
     body: JSON.stringify({
-      email: email,
-      password: password,
+      email, password,
     }),
   }).then(checkResponse);
 };
@@ -29,8 +27,7 @@ export const authorize = (email, password) => {
       "Content-Type": "application/json",
     },
     body: JSON.stringify({
-      email: email,
-      password: password,
+      email, password
     }),
   }).then(checkResponse);
 };
@@ -40,9 +37,8 @@ export const getUserToken = (jwt) => {
     method: "GET",
     headers: {
       "Content-Type": "application/json",
-      Authorization: `Bearer ${jwt}`,
+      "Authorization": `Bearer ${jwt}`,
     },
-  })
-    .then(checkResponse)
-    .then((data) => data);
+  }).then(checkResponse);
 };
+

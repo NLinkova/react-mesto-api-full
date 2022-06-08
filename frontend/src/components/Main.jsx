@@ -54,8 +54,7 @@ function Main(props) {
         </button>
       </section>
       <section className="elements">
-        {/*контейнер для карточек */}
-        {props.cards.map((card) => (
+        {props.cards.map(card => (
           <Card
             card={card}
             key={card._id}

@@ -4,30 +4,29 @@ const User = require('../models/userModel');
 const ErrorNotFound = require('../errors/ErrorNotFound');
 const ErrorConflict = require('../errors/ErrorConflict');
 
+const { NODE_ENV, JWT_SECRET } = process.env;
+
 module.exports.createUser = (req, res, next) => {
   const {
-    name,
-    about,
-    avatar,
-    email,
-    password,
+    name, about, avatar, email, password,
   } = req.body;
 
   bcrypt
     .hash(password, 10)
-    .then((hash) => User
-      .create({
-        name,
-        about,
-        avatar,
-        email,
-        password: hash,
-      }))
+    .then((hash) => User.create({
+      name,
+      about,
+      avatar,
+      email,
+      password: hash,
+    }))
     .then(({ _id }) => User.findById(_id))
     .then((user) => res.send({ data: user }))
     .catch((e) => {
       if (e.code === 11000) {
-        const err = new ErrorConflict('Пользователь с таким email уже существует!');
+        const err = new ErrorConflict(
+          'Пользователь с таким email уже существует!',
+        );
         err.statusCode = 409;
         next(err);
       }
@@ -37,40 +36,39 @@ module.exports.createUser = (req, res, next) => {
 
 module.exports.login = (req, res, next) => {
   const { email, password } = req.body;
-
-  return User
-    .findUserByCredentials(email, password)
+  return User.findUserByCredentials(email, password)
     .then((user) => {
-      res.send({
-        token: jwt.sign({ _id: user._id }, 'some-secret-key', { expiresIn: '7d' }),
-      });
+      const token = jwt.sign(
+        { _id: user._id },
+        NODE_ENV === 'production' ? JWT_SECRET : 'dev-secret',
+        { expiresIn: '7d' },
+      );
+      res.send({ token });
     })
     .catch(next);
 };
 
 module.exports.getCurrentUser = (req, res, next) => {
-  User
-    .findById(req.user._id)
+  User.findById(req.user._id)
     .orFail(() => {
       throw new ErrorNotFound('Запрашиваемый пользователь не найден');
     })
-    .then((user) => res.send({ data: user }))
+    .then((user) => res.send(user))
     .catch(next);
 };
 
 module.exports.getUsers = (req, res, next) => {
   User.find({})
-    .then((users) => res.send({ data: users }))
+    .then((users) => res.status(200).send(users))
     .catch((err) => next(err));
 };
 
 module.exports.getUserById = (req, res, next) => {
-  User
-    .findById(req.params.userId)
+  User.findById(req.params.userId)
     .orFail(() => {
       throw new ErrorNotFound('Запрашиваемый пользователь не найден');
     })
-    .then((user) => res.send({ data: user }))
+    .then((user) => res.send(user))
     .catch(next);
 };
 
@@ -82,13 +80,12 @@ module.exports.updateUser = (req, res, next) => {
     {
       new: true,
       runValidators: true,
-      upsert: false,
     },
   )
     .orFail(() => {
       throw new ErrorNotFound('Пользователь не найден');
     })
-    .then((user) => res.send({ data: user }))
+    .then((user) => res.send(user))
     .catch(next);
 };
 
@@ -100,12 +97,11 @@ module.exports.updateUserAvatar = (req, res, next) => {
     {
       new: true,
       runValidators: true,
-      upsert: false,
     },
   )
     .orFail(() => {
       throw new ErrorNotFound('Пользователь не найден');
     })
-    .then((user) => res.send({ data: user }))
+    .then((user) => res.send(user))
     .catch(next);
 };

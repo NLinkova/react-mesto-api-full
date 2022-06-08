@@ -5,16 +5,14 @@ const ErrorNotFound = require('../errors/ErrorNotFound');
 module.exports.createCard = (req, res, next) => {
   const { name, link } = req.body;
 
-  Card
-    .create({ name, link, owner: req.user._id })
-    .then((card) => res.send({ data: card }))
+  Card.create({ name, link, owner: req.user._id })
+    .then((card) => res.send(card))
     .catch(next);
 };
 
 module.exports.getCards = (req, res, next) => {
-  Card
-    .find({})
-    .then((cards) => res.send({ data: cards }))
+  Card.find({})
+    .then((cards) => res.send(cards))
     .catch(next);
 };
 
@@ -46,7 +44,7 @@ module.exports.putLike = (req, res, next) => {
     .orFail(() => {
       throw new ErrorNotFound('Такой карточки не существует');
     })
-    .then((card) => res.send({ data: card }))
+    .then((card) => res.send(card))
     .catch(next);
 };
 
@@ -59,6 +57,6 @@ module.exports.deleteLike = (req, res, next) => {
     .orFail(() => {
       throw new ErrorNotFound('Такой карточки не существует');
     })
-    .then((card) => res.send({ data: card }))
+    .then((card) => res.send(card))
     .catch(next);
 };
