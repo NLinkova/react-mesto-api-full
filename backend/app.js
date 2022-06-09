@@ -12,8 +12,8 @@ const { userValidator } = require('./middlewares/userValidator');
 const { requestLogger, errorLogger } = require('./middlewares/logger');
 const ErrorNotFound = require('./errors/ErrorNotFound');
 
-// Слушаем 5000
-const { PORT = 5000 } = process.env;
+// Слушаем 3000
+const { PORT = 3000 } = process.env;
 
 const app = express();
 app.use(helmet());
