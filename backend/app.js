@@ -16,7 +16,6 @@ const ErrorNotFound = require('./errors/ErrorNotFound');
 const { PORT = 3000 } = process.env;
 
 const app = express();
-app.use(helmet());
 
 // подключаемся к серверу mongo
 const connectDB = async () => {
@@ -36,14 +35,16 @@ connectDB();
 // CORS middleware
 const CORS_CONFIG = {
   origin: [
-    'https://linkova.mesto.back.nomoredomains.xyz/',
-    'https://linkova.mesto.front.nomoredomains.xyz/',
+    'https://linkova.mesto.back.nomoredomains.xyz',
+    'http://linkova.mesto.back.nomoredomains.xyz',
+    'https://linkova.mesto.front.nomoredomains.xyz',
     'https://localhost:3000',
     'http://localhost:3000',
   ],
 };
 app.options('*', cors(CORS_CONFIG));
 app.use(cors(CORS_CONFIG));
+app.use(helmet());
 
 app.use(bodyParser.json()); // для собирания JSON-формата
 app.use(bodyParser.urlencoded({ extended: true })); // для приёма веб-страниц внутри POST-запроса

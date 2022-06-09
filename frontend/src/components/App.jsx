@@ -49,7 +49,6 @@ function App() {
   //проверка токена
   useEffect(() => {
     const jwt = localStorage.getItem('jwt');
-    console.log(jwt)
     if (jwt) {
       auth
         .getUserToken(jwt)
