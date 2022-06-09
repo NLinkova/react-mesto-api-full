@@ -35,17 +35,14 @@ connectDB();
 
 // CORS middleware
 const CORS_CONFIG = {
-  credentials: true,
   origin: [
-    'http://linkova.mesto.back.nomoredomains.xyz/',
     'https://linkova.mesto.back.nomoredomains.xyz/',
+    'https://linkova.mesto.front.nomoredomains.xyz/',
     'https://localhost:3000',
     'http://localhost:3000',
-    'https://localhost:5000',
-    'http://localhost:5000',
   ],
 };
-
+app.options('*', cors(CORS_CONFIG));
 app.use(cors(CORS_CONFIG));
 
 app.use(bodyParser.json()); // для собирания JSON-формата
