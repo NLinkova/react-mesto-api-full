@@ -38,6 +38,7 @@ const CORS_CONFIG = {
     'https://linkova.mesto.back.nomoredomains.xyz',
     'http://linkova.mesto.back.nomoredomains.xyz',
     'https://linkova.mesto.front.nomoredomains.xyz',
+    'http://linkova.mesto.front.nomoredomains.xyz',
     'https://localhost:3000',
     'http://localhost:3000',
   ],
@@ -67,12 +68,12 @@ app.use(auth);
 app.use('/users', require('./routes/userRoutes'));
 app.use('/cards', require('./routes/cardRoutes'));
 
-app.use(errorLogger);
-app.use(errors());
-app.use(errorHandler);
-
 app.use('*', (req, res, next) => {
   next(new ErrorNotFound('Ресурс по указанному адресу не найден'));
 });
+
+app.use(errorLogger);
+app.use(errors());
+app.use(errorHandler);
 
 app.listen(PORT);
