@@ -29,7 +29,7 @@ export default function Login({ onLogin }) {
           name="login"
           onSubmit={handleSubmit}
         >
-          <h3 className="data__title">Вход</h3>
+          <h3 className="data__title">Log in</h3>
           <input
             type="email"
             name="email"
@@ -48,7 +48,7 @@ export default function Login({ onLogin }) {
             name="password"
             id="password"
             className="data__field data__field_type_password"
-            placeholder="Пароль"
+            placeholder="Password"
             minLength="2"
             maxLength="200"
             value={password}
@@ -57,7 +57,7 @@ export default function Login({ onLogin }) {
           />
           <span id="password-error" className="error"></span>
           <button type="submit" className="data__submit-button">
-            Войти
+            Log in
           </button>
         </form>
       </div>

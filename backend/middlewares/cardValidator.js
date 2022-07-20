@@ -1,9 +1,9 @@
-const { celebrate, Joi } = require('celebrate');
-const isUrl = require('validator/lib/isURL');
+const { celebrate, Joi } = require("celebrate");
+const isUrl = require("validator/lib/isURL");
 
 const checkUrl = (url) => {
   if (!isUrl(url, { require_protocol: true })) {
-    throw new Error('Невалидная ссылка');
+    throw new Error("Invalid URL");
   }
 
   return url;
@@ -12,7 +12,7 @@ const checkUrl = (url) => {
 const cardValidator = celebrate({
   body: Joi.object().keys({
     name: Joi.string().required().min(2).max(30),
-    link: Joi.string().required().custom(checkUrl, 'image link validation'),
+    link: Joi.string().required().custom(checkUrl, "image link validation"),
   }),
 });
 

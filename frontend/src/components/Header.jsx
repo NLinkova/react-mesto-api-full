@@ -10,7 +10,6 @@ function Header({ email, onSignOut }) {
         src={headerLogo}
         alt="логотип страницы место"
       />
-
       <div className="header__wrapper">
         <Switch>
           <Route exact path="/">
@@ -20,17 +19,17 @@ function Header({ email, onSignOut }) {
               className="header__link header__link_exit"
               onClick={onSignOut}
             >
-              Выйти
+              Sign out
             </Link>
           </Route>
           <Route exact path="/sign-in">
             <Link to="/sign-up" className="header__link">
-              Регистрация
+              Sign up
             </Link>
           </Route>
           <Route exact path="/sign-up">
             <Link to="/sign-in" className="header__link">
-              Войти
+              Sign in
             </Link>
           </Route>
         </Switch>

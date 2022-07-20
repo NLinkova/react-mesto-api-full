@@ -40,7 +40,7 @@ function EditProfilePopup(props) {
       onClose={props.onClose}
       onSubmit={(e) => handleSubmit(e)}
       name="edit-profile"
-      title="Редактировать профиль"
+      title="Edit profile"
     >
       <div>
         <input
@@ -48,7 +48,7 @@ function EditProfilePopup(props) {
           name="name"
           id="user-name"
           className="popup__field popup__field_type_name"
-          placeholder="Имя"
+          placeholder="Name"
           minLength="2"
           maxLength="40"
           value={name || ""}
@@ -61,7 +61,7 @@ function EditProfilePopup(props) {
           name="about"
           id="about"
           className="popup__field popup__field_type_desc"
-          placeholder="Описание"
+          placeholder="Description"
           minLength="2"
           maxLength="200"
           value={description || ""}
@@ -70,7 +70,7 @@ function EditProfilePopup(props) {
         />
         <span id="about-error" className="error"></span>
         <button type="submit" className="popup__submit-button">
-          Сохранить
+          Save
         </button>
       </div>
     </PopupWithForm>

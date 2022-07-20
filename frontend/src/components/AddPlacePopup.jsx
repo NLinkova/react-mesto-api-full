@@ -35,7 +35,7 @@ function AddPlacePopup(props) {
       onClose={props.onClose}
       onSubmit={(e) => handleSubmit(e)}
       name="add-card"
-      title="Новое место"
+      title="New place"
     >
       <div>
         <input
@@ -43,7 +43,7 @@ function AddPlacePopup(props) {
           name="name"
           id="place"
           className="popup__field popup__field_type_place"
-          placeholder="Название"
+          placeholder="Name"
           minLength="2"
           maxLength="30"
           value={description || ""}
@@ -56,14 +56,14 @@ function AddPlacePopup(props) {
           name="link"
           id="link"
           className="popup__field popup__field_type_url"
-          placeholder="Ссылка на картинку"
+          placeholder="URL"
           value={image || ""}
           onChange={handleImageChange}
           required
         />
         <span id="link-error" className="error"></span>
         <button type="submit" className="popup__submit-button">
-          Создать
+          Post
         </button>
       </div>
     </PopupWithForm>

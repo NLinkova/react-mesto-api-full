@@ -27,8 +27,8 @@ export default function InfoTooltip(props) {
         />
         <h2 className="popup__title popup__title_type_info">
           {props.success
-            ? "Вы успешно зарегистрировались!"
-            : "Что-то пошло не так! Попробуйте ещё раз."}
+            ? "Successful registration!"
+            : "Something went wrong. Try again"}
         </h2>
       </div>
     </section>

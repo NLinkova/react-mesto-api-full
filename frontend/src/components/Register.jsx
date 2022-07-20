@@ -30,7 +30,7 @@ export default function Register({ handleRegister }) {
           name="register"
           onSubmit={handleSubmit}
         >
-          <h3 className="data__title">Регистрация</h3>
+          <h3 className="data__title">Sign up</h3>
           <input
             type="email"
             name="email"
@@ -49,7 +49,7 @@ export default function Register({ handleRegister }) {
             name="password"
             id="password"
             className="data__field data__field_type_password"
-            placeholder="Пароль"
+            placeholder="Password"
             minLength="2"
             maxLength="200"
             value={password}
@@ -58,14 +58,14 @@ export default function Register({ handleRegister }) {
           />
           <span id="password-error" className="error"></span>
           <button type="submit" className="data__submit-button">
-            Зарегистрироваться
+            Sign up
           </button>
         </form>
         <h3 className="data__subtitle">
-          Уже зарегистрированы?
+          Already have an account?
           <Link className="data__link" to="/sign-in">
             {" "}
-            Войти
+            Login!
           </Link>
         </h3>
       </div>

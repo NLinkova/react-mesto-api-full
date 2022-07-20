@@ -27,7 +27,7 @@ function EditAvatarPopup(props) {
       onClose={props.onClose}
       onSubmit={(e) => handleSubmit(e)}
       name="edit-avatar"
-      title="Обновить аватар"
+      title="Renew avatar photo"
     >
       <div>
         <input
@@ -35,13 +35,13 @@ function EditAvatarPopup(props) {
           name="avatar"
           id="avatar"
           className="popup__field popup__field_type_url"
-          placeholder="Ссылка на картинку"
+          placeholder="URL"
           ref={newAvatarRef}
           required
         />
         <span id="avatar-error" className="error"></span>
         <button type="submit" className="popup__submit-button">
-          Сохранить
+          Save
         </button>
       </div>
     </PopupWithForm>

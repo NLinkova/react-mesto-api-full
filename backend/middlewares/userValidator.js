@@ -1,9 +1,9 @@
-const { celebrate, Joi } = require('celebrate');
-const isUrl = require('validator/lib/isURL');
+const { celebrate, Joi } = require("celebrate");
+const isUrl = require("validator/lib/isURL");
 
 const checkUrl = (url) => {
   if (!isUrl(url, { require_protocol: true })) {
-    throw new Error('Невалидная ссылка');
+    throw new Error("Invalid URL");
   }
   return url;
 };
@@ -12,7 +12,7 @@ const userValidator = celebrate({
   body: Joi.object().keys({
     name: Joi.string().min(2).max(30),
     about: Joi.string().min(2).max(30),
-    avatar: Joi.string().custom(checkUrl, 'avatar link validation'),
+    avatar: Joi.string().custom(checkUrl, "avatar link validation"),
     email: Joi.string().email().required(),
     password: Joi.string().required(),
   }),
@@ -33,7 +33,7 @@ const userIdValidator = celebrate({
 
 const avatarUpdateValidator = celebrate({
   body: Joi.object().keys({
-    avatar: Joi.string().required().custom(checkUrl, 'avatar link validation'),
+    avatar: Joi.string().required().custom(checkUrl, "avatar link validation"),
   }),
 });
 

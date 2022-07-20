@@ -1,48 +1,55 @@
-# Проект Mesto с деплоем на сервер (бэкенд + фронтенд)
-Данный проект является итоговой работой за 13-14-15 спринт на Яндекс.Практикуме.
-## Описание
+# Mesto project with deployment to the server (backend + frontend)
 
-В нём представлены:
+This project is the final work for the 13-14-15 sprint on Yandex.Practice.
 
-Фронтенд и бэкенд части приложения со следующими возможностями: авторизации и регистрации пользователей, операции с карточками и обновление данных пользователя.
+## Description
 
----
-## Функциональность:
+It presents:
 
-* Регистрация;
-* Авторизация;
-* Редактирование аватара;
-* Редактирование профиля;
-* Добавление новой фотографии;
-* Удаление карточки при клике на иконку;
-* Поставить / убрать лайк;
-* Открытие фотографии в полном размере.
----
-## Используемые технологии:
-
-* HTML5;
-* CCS3;
-* JavaScript (стандарт ES6);
-* React (Create React App, портирование разметки в JSX, функциональные компоненты * хуки);
-* Адаптивная верстка (мобильные устройства, планшеты, десктопы);
-* Методология БЭМ (файловая структура);
-* Flexbox;
-* GRID;
-* Позиционирование;
-* Псевдоклассы;
-* Webpack;
-* Express;
-* MongodDB.
----
-
-## Директории:
-
-`/backend` — папка с бэк частью приложения;
-
-`/frontend` — папка с фронт частью приложения.
+Front-end and back-end parts of the application with the following features: authorization and registration of users, operations with cards and updating user data.
 
 ---
-## Запуск проекта:
-* [Ссылка](https://linkova.mesto.front.nomoredomains.xyz) на фронтенд;
-* Запросы на бэкенд по [адресу](https://linkova.mesto.ифсл.nomoredomains.xyz);
-* Публичный IP адрес сервера `51.250.22.17`.
+
+## Functionality:
+
+- Registration;
+- Authorization;
+- Editing the avatar;
+- Profile editing;
+- Adding a new photo;
+- Deleting a card when clicking on the icon;
+- Put / remove like;
+- Open photo in full size.
+
+---
+
+## Technologies used:
+
+- HTML5;
+- CCS3;
+- JavaScript (ES6 standard);
+- React (Create React App, porting markup to JSX, functional components and hooks);
+- Adaptive layout (mobile devices, tablets, desktops);
+- BEM methodology (file structure);
+- Flexbox;
+- GRID;
+- Positioning;
+- Pseudo-classes;
+- Webpack;
+- Express;
+- MongodDB.
+
+---
+
+## Directories:
+
+`/backend` - folder with the back end of the application;
+
+`/frontend` is a folder with the front end of the application.
+
+---
+
+## Launch of the project:
+
+- [Link](https://linkova.mesto.front.nomoredomains.xyz) to the frontend;
+- Backend requests at [address](https://linkova.mesto.ifsl.nomoredomains.xyz);
