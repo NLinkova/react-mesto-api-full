@@ -29,6 +29,7 @@ Front-end and back-end parts of the application with the following features: aut
 - CCS3;
 - JavaScript (ES6 standard);
 - React (Create React App, porting markup to JSX, functional components and hooks);
+- Serverless architecture
 - Adaptive layout (mobile devices, tablets, desktops);
 - BEM methodology (file structure);
 - Flexbox;
@@ -36,6 +37,7 @@ Front-end and back-end parts of the application with the following features: aut
 - Positioning;
 - Pseudo-classes;
 - Webpack;
+- Node
 - Express;
 - MongodDB.
 
