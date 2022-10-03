@@ -47,11 +47,6 @@ Front-end and back-end parts of the application with the following features: aut
 
 `/backend` - folder with the back end of the application;
 
-`/frontend` is a folder with the front end of the application.
+`/frontend` - folder with the front end of the application.
 
 ---
-
-## Launch of the project:
-
-- [Link](https://linkova.mesto.front.nomoredomains.xyz) to the frontend;
-- Backend requests at [address](https://linkova.mesto.ifsl.nomoredomains.xyz);
