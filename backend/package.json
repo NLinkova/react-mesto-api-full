@@ -5,7 +5,7 @@
   "main": "app.js",
   "scripts": {
     "dev": "nodemon app.js",
-    "start": "pm2-runtime start ecosystem.config.js --env production",
+    "start": "node app.js",
     "test": "echo \"Error: no test specified\" && exit 1",
     "lint": "npx eslint ."
   },
@@ -37,7 +37,6 @@
     "joi": "^17.6.0",
     "jsonwebtoken": "^8.5.1",
     "mongoose": "^6.3.0",
-    "pm2": "^5.2.0",
     "validator": "^13.7.0",
     "winston": "^3.7.2"
   }
